@@ -1,0 +1,50 @@
+??????????????????????????????????/////////////////////////////////  maion.tf    \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+
+
+terraform {
+  required_providers {
+    aws = {
+      source  = "hashicorp/aws"
+      version = "~> 4.16"
+    }
+  }
+
+  required_version = ">= 1.2.0"
+}
+
+provider "aws" {
+
+  region  = "us-east-2"
+}
+
+resource "aws_instance" "app_server" {
+  count = 4
+  ami           = "ami-02238ac43d6385ab3"
+  instance_type = "t2.micro"
+
+
+
+  tags = {
+    Name = "teraform server"
+  }
+}
+
+
+
+
+
+///////////////   prerequisite    \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+
+
+
+download terraform,terraform cli,aws cli and have aws aceess key and id 
+
+input key and id directly by command    ------aws configure--------
+
+terraform init
+
+terraform apply
+
+
+
+
